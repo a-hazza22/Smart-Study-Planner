@@ -1,98 +1,36 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+#  Smart Study Planner (AI-Driven Autonomous Scheduling System)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+An AI-powered backend system designed to enhance university students' academic performance by autonomously generating personalized weekly study schedules from raw schedule images.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+##  The Engineering Journey & Problem Solving
 
-## Description
+This project was developed through an iterative engineering process, transitioning from a basic prototype to a robust, modular architecture:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+* **Iteration 1 (The Challenge):** The initial prototype relied on a procedural, single-file codebase and early-stage LLM APIs. This approach led to "Spaghetti Code," API rate limits (Error 400), and severe logical conflicts—such as the AI scheduling study sessions at 09:00 AM while the student was attending university lectures.
+* **Iteration 2 (The Solution):** The entire system was completely refactored using **NestJS** to establish a clean, Object-Oriented, and modular architecture. We migrated to the **Groq LPU** for ultra-fast inference and implemented strict, hard-coded constraints to ensure the AI's output respected human biology and social schedules.
 
-## Project setup
+## Key Features & Algorithmic Constraints
 
-```bash
-$ npm install
-```
+Instead of random AI generation, the system utilizes a hybrid approach (AI Semantic Analysis + Deterministic TypeScript Algorithms):
 
-## Compile and run the project
+* **Image-to-Plan (OCR):** Uses **Llama-3.2 Vision** to extract course names and difficulty levels directly from uploaded schedule images (PNG/JPEG/PDF).
+* **The 50+10 Rule:** Automatically divides the user's requested total study time into highly efficient blocks of 50 minutes of study followed by a mandatory 10-minute break.
+* **Sleep Guard:** Hard-coded constraints prevent the system from scheduling any study sessions between 23:00 and 08:00.
+* **School Hours Awareness:** The algorithm differentiates between weekdays (starting study sessions at 18:00, post-university) and weekends (starting at 10:00).
 
-```bash
-# development
-$ npm run start
+##  Tech Stack
 
-# watch mode
-$ npm run start:dev
+* **Framework:** NestJS (Node.js)
+* **Language:** TypeScript (Ensuring Type Safety and strict JSON validation)
+* **AI / LLM:** Groq API (Llama-3.2 Vision & Llama-3 70B Versatile)
+* **Data Processing:** Multer (In-memory Buffer processing for zero I/O latency)
+* **Development Tools:** VS Code, ESLint, Prettier
 
-# production mode
-$ npm run start:prod
-```
+##  Installation & Setup
 
-## Run tests
+Follow these instructions to run the project locally:
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
+   cd YOUR_REPOSITORY_NAME
