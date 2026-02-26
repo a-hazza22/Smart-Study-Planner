@@ -31,7 +31,7 @@ async function uploadImage() {
     formData.append("file", file);
 
     try {
-        const res = await fetch("http://localhost:3001/scheduler/upload-schedule", { method: "POST", body: formData });
+        const res = await fetch("/api/scheduler/upload-schedule", { method: "POST", body: formData });
         const data = await res.json();
         
         if (data.success && data.courses) {
@@ -68,7 +68,7 @@ async function createPlan() {
     btn.classList.add("opacity-75", "cursor-wait");
 
     try {
-        const res = await fetch("http://localhost:3001/scheduler/create", {
+        const res = await fetch("/api/scheduler/create", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ courses, freeTime: document.getElementById("freeTime").value })
